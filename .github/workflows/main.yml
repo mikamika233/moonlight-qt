@@ -1,0 +1,39 @@
+name: Windows Build
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    -name: Qt installer
+     run:  |
+       winget install --id Python.Python.3.13 --source winget
+       pip install -U pip
+       pip install aqtinstall
+       aqt install-qt windows desktop 6.9.0 msvc2022_64 -m all 
+      
+    - name: Install dependencies
+      run: |
+        choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' -y
+        choco install 7zip -y
+
+    - name: Setup MSVC Developer Command Prompt
+      uses: ilammy/msvc-dev-cmd@v1
+
+    - name: Configure with CMake
+      run: |
+        scripts\build-arch.bat
+        scripts\generate-bundle.bat
+        shell: cmd
+
+    - name: Archive build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: moonlight-qt-windows
+        path: build/
