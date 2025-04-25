@@ -32,9 +32,9 @@ jobs:
 
     - name: Configure with CMake
       run: |
-        scripts\build-arch.bat
-        scripts\generate-bundle.bat
-        shell: cmd
+        call scripts\build-arch.bat
+        call scripts\generate-bundle.bat
+      shell: cmd
 
     - name: Archive build artifacts
       uses: actions/upload-artifact@v4
