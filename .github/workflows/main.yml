@@ -21,7 +21,7 @@ jobs:
         pip install -U pip
         pip install aqtinstall
         aqt install-qt windows desktop 6.9.0 msvc2022_64 -m all --outputdir c:\Qt\desktop\6.9.0\msvc2022_64
-        dir c:\Qt\desktop\6.9.0\msvc2022_64
+        dir c:\Qt\desktop\6.9.0\msvc2022_64\6.9.0
 
     - name: Add Qt to PATH
       run: echo "c:\Qt\desktop\6.9.0\msvc2022_64\6.9.0\msvc2022_64\bin" >> $GITHUB_PATH
