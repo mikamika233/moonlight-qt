@@ -11,12 +11,12 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    -name: Qt installer
-     run: |
-       winget install --id Python.Python.3.13 --source winget
-       pip install -U pip
-       pip install aqtinstall
-       aqt install-qt windows desktop 6.9.0 msvc2022_64 -m all 
+    - name: Qt installer
+      run: |
+        winget install --id Python.Python.3.13 --source winget
+        pip install -U pip
+        pip install aqtinstall
+        aqt install-qt windows desktop 6.9.0 msvc2022_64 -m all 
       
     - name: Install dependencies
       run: |
