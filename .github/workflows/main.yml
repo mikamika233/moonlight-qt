@@ -24,7 +24,8 @@ jobs:
         dir c:\Qt\desktop\6.9.0\msvc2022_64\6.9.0\msvc2022_64
 
     - name: Add Qt to PATH
-      run: echo "c:\Qt\desktop\6.9.0\msvc2022_64\6.9.0\msvc2022_64\bin" >> $GITHUB_PATH
+      run: echo "c:\Qt\desktop\6.9.0\msvc2022_64\6.9.0\msvc2022_64\bin" >> %GITHUB_PATH%
+      shell: cmd
           
     - name: Install dependencies
       run: |
