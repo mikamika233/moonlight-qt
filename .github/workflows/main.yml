@@ -11,15 +11,17 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Qt installer
+    - name: Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.13' 
-        run: |
-          pip install -U pip
-          pip install aqtinstall
-          aqt install-qt windows desktop 6.9.0 msvc2022_64 -m all 
-      
+
+    - name: Qt installer
+      run: |
+        pip install -U pip
+        pip install aqtinstall
+        aqt install-qt windows desktop 6.9.0 msvc2022_64 -m all 
+          
     - name: Install dependencies
       run: |
         choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' -y
