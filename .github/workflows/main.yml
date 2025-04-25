@@ -23,7 +23,7 @@ jobs:
         aqt install-qt windows desktop 6.9.0 msvc2022_64 -m all 
 
     - name: Add Qt to PATH
-      run: echo "C:\Qt\6.9.0\msvc2022_64\bin" >> $GITHUB_PATH
+      run: echo "D:\a\moonlight-qt\moonlight-qt\6.9.0\msvc2022_64\bin" >> $GITHUB_PATH
           
     - name: Install dependencies
       run: |
@@ -35,7 +35,6 @@ jobs:
 
     - name: Configure with CMake
       run: |
-        call C:\Qt\6.9.0\msvc2022_64\bin\qtenv2.bat
         call scripts\build-arch.bat release x64
         call scripts\generate-bundle.bat release
       shell: cmd
