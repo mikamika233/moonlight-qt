@@ -32,8 +32,8 @@ jobs:
 
     - name: Configure with CMake
       run: |
-        call scripts\build-arch.bat
-        call scripts\generate-bundle.bat
+        call scripts\build-arch.bat release
+        call scripts\generate-bundle.bat release
       shell: cmd
 
     - name: Archive build artifacts
