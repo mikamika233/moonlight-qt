@@ -39,7 +39,7 @@ jobs:
       run: |
         call c:\Qt\desktop\6.9.0\msvc2022_64\6.9.0\msvc2022_64\bin\qtenv2.bat
         call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
-        call scripts\build-arch.bat release x64 && call scripts\generate-bundle.bat release
+        call D:\a\moonlight-qt\moonlight-qt\scripts\build-arch.bat release x64 && call D:\a\moonlight-qt\moonlight-qt\scripts\generate-bundle.bat release
       shell: cmd
 
     - name: Archive build artifacts
