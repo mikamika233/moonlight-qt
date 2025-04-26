@@ -44,9 +44,9 @@ jobs:
 
     - name: Configure with CMake
       run: |
-        c:\Qt\6.9.0\msvc2022_64\bin\qtvars.bat
-        D:\a\moonlight-qt\scripts\build-arch.bat release x64
-        D:\a\moonlight-qt\scripts\generate-bundle.bat release
+        & "c:\Qt\6.9.0\msvc2022_64\bin\qtvars.bat"
+        & "D:\a\moonlight-qt\scripts\build-arch.bat release x64"
+        & "D:\a\moonlight-qt\scripts\generate-bundle.bat release"
 
     - name: Archive build artifacts
       uses: actions/upload-artifact@v4
