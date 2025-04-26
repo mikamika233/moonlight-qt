@@ -34,6 +34,7 @@ jobs:
       run: |
         choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' -y
         choco install 7zip -y
+        qmake -v
 
     - name: Add 7-Zip to PATH    
       run: |
