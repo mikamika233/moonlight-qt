@@ -52,6 +52,7 @@ jobs:
       run: |
         cd moonlight-qt
         call scripts\build-arch.bat release x64
+        call scripts\build-arch.bat release arm64
         call scripts\generate-bundle.bat release
       shell: cmd
 
