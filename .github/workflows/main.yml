@@ -13,13 +13,6 @@ jobs:
         git clone https://github.com/moonlight-stream/moonlight-qt
         cd moonlight-qt
         git submodule update --init --recursive
-        cd ..
-        dir 
-
-    - name: Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.13' 
 
     - name: Install Qt x64
       uses: jdpurcell/install-qt-action@v5
@@ -28,26 +21,12 @@ jobs:
         dir: ${{ github.workspace }}\x64\
         host: windows
         target: desktop
-        version: '6.8.3'
+        version: '6.9.0'
         use-naqt: true
-          
-    - name: Install dependencies
-      run: |
-        choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' -y
-        choco install 7zip -y
-        Invoke-WebRequest -Uri "https://slproweb.com/download/Win64OpenSSL-3_5_0.exe" -OutFile "OpenSSL.exe"
-        Start-Process -Wait -FilePath "OpenSSL.exe" -ArgumentList "/silent", "/dir=C:\OpenSSL"
-        qmake -v
 
-    - name: Add 7-Zip to PATH    
+    - name: Gather metadata
       run: |
-        echo "C:\Program Files\7-Zip" >> $GITHUB_PATH
-        echo "C:\OpenSSL" >> $GITHUB_PATH
-        echo "C:\OpenSSL\bin" >> $GITHUB_PATH
-        echo "C:\OpenSSL\lib" >> $GITHUB_PATH
-        qmake -v
-      shell: bash
-
+        Add-Content $env:GITHUB_PATH "$($env:QT_ROOT_DIR)\bin"
 
     - name: Setup MSVC Developer Command Prompt
       uses: ilammy/msvc-dev-cmd@v1
